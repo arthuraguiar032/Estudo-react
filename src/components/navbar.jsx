@@ -8,6 +8,9 @@ export default function Navbar() {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">Sobre</Link></li>
+                <li><Link to="/courses">Cursos</Link></li>
+                <li><Link to="/course_description">Descrição</Link></li>
+                <li><Link to="/subscription">Inscrição</Link></li>
                 <li><Link to="/contact">Contato</Link></li>
             </ul>
         </nav>
