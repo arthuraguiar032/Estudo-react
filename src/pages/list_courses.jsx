@@ -1,12 +1,180 @@
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+
 export default function List_Courses() {
+    let products = [
+        {
+          "id": 1,
+          "nome": "Introdução à Programação em Python",
+          "sigla": "IPP",
+          "data_inicio": "2024-04-16",
+          "data_fim": "2024-06-01",
+          "descricao": "Curso introdutório sobre programação em Python, abordando conceitos básicos e práticos."
+        },
+        {
+          "id": 2,
+          "nome": "Desenvolvimento Web com HTML, CSS e JavaScript",
+          "sigla": "DW-HTMLCSSJS",
+          "data_inicio": "2024-05-01",
+          "data_fim": "2024-07-15",
+          "descricao": "Curso prático sobre desenvolvimento web, cobrindo os fundamentos de HTML, CSS e JavaScript."
+        },
+        {
+          "id": 3,
+          "nome": "Machine Learning e Inteligência Artificial",
+          "sigla": "MLIA",
+          "data_inicio": "2024-06-10",
+          "data_fim": "2024-08-30",
+          "descricao": "Curso avançado sobre machine learning e inteligência artificial, com aplicação prática em diversos domínios."
+        },
+        {
+          "id": 4,
+          "nome": "Marketing Digital e Mídias Sociais",
+          "sigla": "MDMS",
+          "data_inicio": "2024-07-05",
+          "data_fim": "2024-09-20",
+          "descricao": "Curso abrangente sobre estratégias de marketing digital e uso eficaz de mídias sociais para empresas."
+        },
+        {
+          "id": 5,
+          "nome": "Gestão de Projetos com Agile e Scrum",
+          "sigla": "GPAS",
+          "data_inicio": "2024-08-20",
+          "data_fim": "2024-11-10",
+          "descricao": "Curso prático sobre metodologias ágeis de gestão de projetos, com foco em Scrum e Agile."
+        },
+        {
+          "id": 6,
+          "nome": "Inglês para Negócios",
+          "sigla": "IN",
+          "data_inicio": "2024-09-01",
+          "data_fim": "2024-10-30",
+          "descricao": "Curso intensivo de inglês voltado para profissionais de negócios, focado em comunicação e vocabulário específico."
+        },
+        {
+          "id": 7,
+          "nome": "Design Gráfico e Adobe Creative Suite",
+          "sigla": "DG-ACS",
+          "data_inicio": "2024-10-10",
+          "data_fim": "2024-12-05",
+          "descricao": "Curso abrangente sobre design gráfico e uso das ferramentas da Adobe Creative Suite, como Photoshop, Illustrator e InDesign."
+        },
+        {
+          "id": 8,
+          "nome": "Educação Financeira e Investimentos",
+          "sigla": "EFI",
+          "data_inicio": "2024-11-05",
+          "data_fim": "2025-01-15",
+          "descricao": "Curso introdutório sobre princípios de educação financeira e estratégias de investimento para iniciantes."
+        },
+        {
+          "id": 9,
+          "nome": "Desenvolvimento de Aplicativos para Dispositivos Móveis",
+          "sigla": "DADM",
+          "data_inicio": "2025-01-10",
+          "data_fim": "2025-03-20",
+          "descricao": "Curso prático sobre desenvolvimento de aplicativos móveis para iOS e Android, cobrindo conceitos básicos e avançados."
+        },
+        {
+          "id": 10,
+          "nome": "Administração de Redes e Segurança da Informação",
+          "sigla": "ARSI",
+          "data_inicio": "2025-02-15",
+          "data_fim": "2025-05-05",
+          "descricao": "Curso avançado sobre administração de redes e segurança da informação, abordando protocolos, firewalls e boas práticas de segurança."
+        },
+        {
+          "id": 11,
+          "nome": "Fotografia Digital e Edição de Imagens",
+          "sigla": "FDEI",
+          "data_inicio": "2025-03-01",
+          "data_fim": "2025-05-20",
+          "descricao": "Curso prático sobre fotografia digital, cobrindo técnicas de composição e edição de imagens usando softwares como Adobe Lightroom e Photoshop."
+        },
+        {
+          "id": 12,
+          "nome": "Gestão de Recursos Humanos e Liderança",
+          "sigla": "GRHL",
+          "data_inicio": "2025-04-10",
+          "data_fim": "2025-06-30",
+          "descricao": "Curso abrangente sobre gestão de recursos humanos, focando em recrutamento, desenvolvimento de equipes e liderança eficaz."
+        },
+        {
+          "id": 13,
+          "nome": "Desenvolvimento Sustentável e Responsabilidade Social Corporativa",
+          "sigla": "DSRSC",
+          "data_inicio": "2025-05-05",
+          "data_fim": "2025-07-25",
+          "descricao": "Curso introdutório sobre desenvolvimento sustentável e práticas de responsabilidade social corporativa para empresas e organizações."
+        },
+        {
+          "id": 14,
+          "nome": "E-commerce: Estratégias de Vendas Online",
+          "sigla": "ECESVO",
+          "data_inicio": "2025-06-15",
+          "data_fim": "2025-09-05",
+          "descricao": "Curso prático sobre estratégias de vendas online e operação de e-commerce, cobrindo desde a criação da loja virtual até técnicas avançadas de marketing."
+        },
+        {
+          "id": 15,
+          "nome": "Inteligência Emocional e Gestão de Conflitos",
+          "sigla": "IEGC",
+          "data_inicio": "2025-07-01",
+          "data_fim": "2025-09-30",
+          "descricao": "Curso sobre inteligência emocional e técnicas de gestão de conflitos, focando em habilidades interpessoais e comunicação eficaz."
+        },
+        {
+          "id": 16,
+          "nome": "Culinária Internacional: Técnicas e Receitas",
+          "sigla": "CITR",
+          "data_inicio": "2025-08-20",
+          "data_fim": "2025-11-10",
+          "descricao": "Curso prático sobre culinária internacional, cobrindo técnicas de preparo e receitas tradicionais de diversos países."
+        },
+        {
+          "id": 17,
+          "nome": "Gestão de Marketing e Branding",
+          "sigla": "GMB",
+          "data_inicio": "2025-09-05",
+          "data_fim": "2025-11-30",
+          "descricao": "Curso avançado sobre gestão de marketing e branding, abordando estratégias de posicionamento de marca e comunicação eficaz."
+        },
+        {
+          "id": 18,
+          "nome": "Desenvolvimento Pessoal e Produtividade",
+          "sigla": "DPP",
+          "data_inicio": "2025-10-10",
+          "data_fim": "2025-12-30",
+          "descricao": "Curso sobre desenvolvimento pessoal e técnicas de produtividade, focando em autoconhecimento e organização pessoal."
+        },
+        {
+          "id": 19,
+          "nome": "Gestão de Projetos com Microsoft Project",
+          "sigla": "GPMP",
+          "data_inicio": "2025-11-05",
+          "data_fim": "2026-01-30",
+          "descricao": "Curso prático sobre gestão de projetos com Microsoft Project, abordando desde o planejamento até o acompanhamento e controle de projetos."
+        },
+        {
+          "id": 20,
+          "nome": "Empreendedorismo e Inovação",
+          "sigla": "EI",
+          "data_inicio": "2026-01-10",
+          "data_fim": "2026-03-30",
+          "descricao": "Curso abrangente sobre empreendedorismo e inovação, com foco em startups, modelos de negócios e estratégias de crescimento."
+        }
+    ]
+    
     return (
         <>
-        <h1>Cursos</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et odio finibus, dignissim mauris et, fermentum nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Sed in diam elementum, faucibus diam eu, blandit dolor. Donec sagittis, purus ut lobortis vestibulum, nulla quam condimentum lacus, sed consequat leo augue sit amet elit. Vivamus scelerisque tempus lobortis. Nunc dui purus, mattis at lacus quis, suscipit porta lectus. Praesent nibh ligula, commodo eget ante vel, vehicula euismod neque. Ut blandit elit in leo elementum mattis. Etiam nec metus aliquet, facilisis ante suscipit, vulputate arcu. Aliquam hendrerit arcu eget nulla sodales, scelerisque finibus justo imperdiet. Sed est magna, eleifend placerat felis pharetra, gravida lobortis lacus. </p>
-        <p>Nulla ultricies molestie orci id vestibulum. Nam eget accumsan lacus. Phasellus ullamcorper laoreet dui non tristique. Donec elementum sem ac dignissim scelerisque. Praesent pretium nec neque ac consequat. Nam congue, dolor quis mattis mattis, sem magna tristique lorem, non sodales lorem diam a neque. Aliquam sed ultrices risus. Sed ultricies erat nec risus egestas accumsan. Nulla nisi quam, vulputate in eros at, bibendum vulputate nunc. In vel mauris sed ante dictum placerat id quis diam. Vivamus tempus leo et ornare pharetra. Curabitur vel placerat est. Vestibulum pharetra eros quis justo varius dapibus. Pellentesque ac congue eros. Praesent venenatis augue est, vitae aliquam turpis laoreet eu. </p>
-        <p> Suspendisse rutrum purus a varius luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce feugiat lectus quis nulla volutpat sagittis. Nunc eros purus, pharetra id dapibus vitae, consequat eu eros. Integer eget nisl quis lorem mattis rutrum. In tempor facilisis egestas. Donec sagittis est quam, suscipit placerat velit tempor quis. Nulla non libero venenatis, sagittis dui eu, tincidunt justo. Nunc rhoncus magna nisl, in semper sem dapibus sed. Sed quis ultrices urna. Proin nunc mauris, hendrerit nec convallis placerat, blandit at justo. Praesent aliquet venenatis purus. Donec sodales urna in porttitor varius. Aenean porttitor diam pharetra tempus semper. Vestibulum tristique posuere finibus. Phasellus ipsum neque, tristique congue placerat vel, tincidunt sed enim. </p>
-        <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam dictum eros at leo posuere varius. Sed et accumsan mi. Nulla vel nisi id lectus commodo tempor. Aliquam sit amet sapien vel massa volutpat fermentum. Vestibulum commodo venenatis sem, nec tempus dui volutpat in. Aliquam eleifend iaculis nisi ac porttitor. Suspendisse non velit at quam tempus cursus. Sed massa eros, bibendum nec justo at, lacinia finibus ligula. Donec vitae ullamcorper nisi. Suspendisse et mauris in est scelerisque malesuada ultrices eget felis. Praesent quam ex, interdum tincidunt justo vitae, bibendum consectetur est. Phasellus convallis quam ante. In hac habitasse platea dictumst. Duis commodo dolor at est pulvinar mollis. Pellentesque porta maximus nisl. </p>
-        <p> Quisque eleifend vel est sit amet semper. Quisque et ante dolor. Vivamus a luctus tellus. Cras eu quam egestas felis finibus commodo. Nullam quis mauris sodales, tincidunt quam ac, rhoncus sem. Pellentesque convallis nibh nec consequat pretium. Sed rutrum luctus felis vel interdum. Vivamus a eros lobortis, malesuada erat ac, convallis neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis eu est dui. Integer ultricies vel magna id hendrerit. </p>
+            <h1>Cursos</h1>
+            <DataTable value={products} paginator rows={5} tableStyle={{ minWidth: '50rem' }}>
+                <Column field="nome" header="Nome"></Column>
+                <Column field="sigla" header="Sigla"></Column>
+                <Column field="data_inicio" header="Data Inicio"></Column>
+                <Column field="data_fim" header="Data Fim"></Column>
+                <Column field="descricao" header="Descrição"></Column>
+            </DataTable>
         </> 
     )
 }
